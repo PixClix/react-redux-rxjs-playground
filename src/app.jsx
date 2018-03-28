@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import Rx from "rxjs/Rx";
 import { Provider, connect } from "react-redux";
@@ -17,9 +17,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    incrementCount(number) {
-        dispatch(incrementCount(number))
-    }
+  incrementCount(number) {
+    dispatch(incrementCount(number));
+  }
 });
 
 class App extends React.Component {
@@ -34,11 +34,32 @@ class App extends React.Component {
   render() {
     const { count } = this.props;
     return (
-      <Div className="grid-basics-example">
-        <h2>Welcome to React!</h2>
-        <button> click! </button>
-        <P> {count} </P>
-      </Div>
+      <Fragment>
+        <Div className="container">
+          <Div className="row">
+            <Div className="col-xs-12" />
+          </Div>
+          <Div className="row">
+            <Div className="col-md-4">
+              <h2>Welcome to React!</h2>
+              <button> click! </button>
+              <P> {count} </P>
+            </Div>
+            <Div className="col-md-4">
+              <P> {count} </P>
+            </Div>
+            <Div className="col-md-4">
+              <P> {count} </P>
+            </Div>
+          </Div>
+          <Div className="row">
+            <div className="col-md-6" />
+          </Div>
+          <Div className="row">
+            <Div className="col-xs-12" />
+          </Div>
+        </Div>
+      </Fragment>
     );
   }
 }

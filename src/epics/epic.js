@@ -7,7 +7,7 @@ const clickEpic = (action$, store) =>
   action$
     .ofType("INCREMENT")
     .delay(WAIT_IN_MS)
-    .map(action => ({
+    .scan(() => ({
       type: "DOUBLED_INCREMENT",
       payload: store.getState() * MULTIPLICATION_FACTOR
     }));
